@@ -57,3 +57,9 @@ end
 如果忘记配置可执行 `vagrant ssh-config` 查看每个虚拟机的配置信息
 
 如修改vagrantfile文件后可执行 `vagrant reload` 加载更新配置
+
+## 关闭虚拟机
+
+`vagrant halt` # 关闭所有虚拟机
+
+`vagrant halt  virtual name` # 指定虚拟机名称进行关闭
