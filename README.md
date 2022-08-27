@@ -13,7 +13,6 @@
 我使用的虚拟机为 [Oracle VM VirtualBox](https://download.virtualbox.org/virtualbox/6.1.36/VirtualBox-6.1.36-152435-Win.exe)
 
 # vagrant 批量创建的脚本
-
 创建一个名称为 Vagrantfile 的文件并写入下面脚本信息
 
 ```Vagrantfile
@@ -49,9 +48,9 @@ end
 
 ` vagrant up ` 就会自动下载虚拟机镜像并自动创建
 
-在创建过程中打开VirtualBox 可看见正在创建的过程
+在创建过程中打开 VirtualBox 可看见正在创建的过程
 
-待创建完成可在cmd中使用 vagrant ssh k8s-node1 进入虚拟机环境中
+待创建完成可在cmd中使用 `vagrant ssh k8s-node1` 进入虚拟机环境中
 
 就此虚拟机环境创建完成
 
