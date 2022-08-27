@@ -8,12 +8,14 @@
 我这里以windows系统为例
 [vagrant_2.3.0_windows_amd64.msi](https://releases.hashicorp.com/vagrant/2.3.0/vagrant_2.3.0_windows_amd64.msi)
 
-# 下载完成后 点击安装 vagrant_2.3.0_windows_amd64.msi 注意：不能有中文的安装路径否则会报错
-# 我使用的虚拟机为 [Oracle VM VirtualBox](https://download.virtualbox.org/virtualbox/6.1.36/VirtualBox-6.1.36-152435-Win.exe)
+下载完成后 点击安装 vagrant_2.3.0_windows_amd64.msi 注意：不能有中文的安装路径否则会报错
+
+我使用的虚拟机为 [Oracle VM VirtualBox](https://download.virtualbox.org/virtualbox/6.1.36/VirtualBox-6.1.36-152435-Win.exe)
 
 # vagrant 批量创建的脚本
 
 创建一个名称为 Vagrantfile 的文件并写入下面脚本信息
+
 ```Vagrantfile
 Vagrant.configure("2") do | config|
 	(1..3).each do |i|
@@ -44,7 +46,13 @@ Vagrant.configure("2") do | config|
 end
 ```
 在 Vagrantfile 文件路径下打开cmd终端并执行
+
 ` vagrant up ` 就会自动下载虚拟机镜像并自动创建
+
 在创建过程中打开VirtualBox 可看见正在创建的过程
+
 待创建完成可在cmd中使用 vagrant ssh k8s-node1 进入虚拟机环境中
+
 就此虚拟机环境创建完成
+
+如果忘记配置可执行 `vagrant ssh-config` 查看每个虚拟机的配置信息
