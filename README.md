@@ -1,3 +1,9 @@
+# 使用vagrant 批量创建kubernetes集群
+
+[vagrant & kubernetes](https://medium.com/@raj10x/multi-node-kubernetes-cluster-with-vagrant-virtualbox-and-kubeadm-9d3eaac28b98)
+
+---
+
 # Virtualization
 虚拟化学习笔记
 ## 批量创建虚拟机
