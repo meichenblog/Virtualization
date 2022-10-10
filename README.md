@@ -3,7 +3,7 @@
 ## 批量创建虚拟机
 > vagrant 可以批量创建虚拟机，支持 Windows linux mac系统
 
-[根据操作系统下载](https://www.vagrantup.com/downloads)
+[根据操作系统下载vagrant](https://www.vagrantup.com/downloads)
 
 我这里以windows系统为例
 [vagrant_2.3.0_windows_amd64.msi](https://releases.hashicorp.com/vagrant/2.3.0/vagrant_2.3.0_windows_amd64.msi)
@@ -12,10 +12,97 @@
 
 我使用的虚拟机为 [Oracle VM VirtualBox](https://download.virtualbox.org/virtualbox/6.1.36/VirtualBox-6.1.36-152435-Win.exe)
 
+
+# Vagrant 使用手册
+
+## vagrant 官网
+[vagrant](https://www.vagrantup.com/) 
+
+## 镜像列表
+
+[Vagrant cloud](https://app.vagrantup.com/boxes/search)
+
+## Vagrant basic cmd (vagrant 基础命令的使用)
+```bash
+# 创建虚拟机
+vagrant up
+# 查看虚拟机状态
+vagrant status
+# 查看本地虚拟机
+vagrant box list
+# 下载虚拟机镜像可选择不同虚拟机平台的系统镜像文件
+vagrant box add generic/ubuntu2004
+# 指定需要下载的虚拟机平台和系统镜像版本
+vagrant box add generic/ubuntu2004 --provider=virtualbox --box-version=3.1.22
+# 使用ssh进入虚拟机中
+vagrant ssh <host name>
+# 查看虚拟机配置
+vagrant ssh-config 
+or
+vagrant ssh-config <host name>
+# 暂停虚拟机
+# 暂停
+vagrant suspend <host name>
+# 重新开始
+vagrant resume <host name>
+# 重新加载
+vagrant reload <host name>
+# 关机
+vagrant halt <host name>
+
+# 删除虚拟机
+vagrant destroy <host name>
+# 查看全部虚拟机的状态
+vagrant global-status
+# 清除无效的虚拟机缓存条目
+vagrant global-status --prune
+
+# 指定平台和版本号进行删除本地镜像文件
+vagrant box remove --provider=hyperv --box-version=3.1.22
+# 退出虚拟机
+logout
+``` 
+---
 # vagrant 批量创建的脚本
+
 创建一个名称为 Vagrantfile 的文件并写入下面脚本信息
 
-```Vagrantfile
+## 写法一：
+
+```ruby
+# 使用host_list 批量定义不同的主机名称与虚拟机操作系统
+host_list = [
+
+    {
+        :name => "host1",
+        :box => "centos/7"
+    
+    },
+    {
+        :name => "host2",
+        :box => "centos/7"
+    },
+    {
+        :name => "host3",
+        :box => "centos/8"
+    }
+
+]
+
+# 循环创建虚拟机主机
+Vagrant.configure("2") do | config|
+    host_list.each do | item|
+         config.vm.define item[:name] do|host|
+            # 设置虚拟机的Box操作系统    
+            host.vm.box = item[:box]            
+         end
+    end
+ end
+
+```
+## 写法二：
+
+```ruby
 Vagrant.configure("2") do | config|
 	(1..3).each do |i|
 		config.vm.define "k8s-node#{i}" do |node|
@@ -43,37 +130,5 @@ Vagrant.configure("2") do | config|
 		end
 	end
 end
-```
-在 Vagrantfile 文件路径下打开cmd终端并执行
 
-` vagrant up ` 就会自动下载虚拟机镜像并自动创建
-
-在创建过程中打开 VirtualBox 可看见正在创建的过程
-
-待创建完成可在cmd中使用 `vagrant ssh k8s-node1` 进入虚拟机环境中
-
-就此虚拟机环境创建完成
-
-如果忘记配置可执行 `vagrant ssh-config` 查看每个虚拟机的配置信息
-
-如修改vagrantfile文件后可执行 `vagrant reload` 加载更新配置
-
-## 关闭虚拟机
-
-`vagrant halt` # 关闭所有虚拟机
-
-`vagrant halt  virtual name` # 指定虚拟机名称进行关闭
-
-## ssh 进入机器
-`vagrant ssh`
-
-## 推出机器
-logout
-## 查看已开启的机器
-`vagrant box list`
-## 暂停虚拟机
-`vagrant suspend`
-## 销毁虚拟机
-`vagrant destroy`
-## 查看配置文件
-`vagrant ssh-config`
+``` 
