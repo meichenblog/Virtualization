@@ -75,4 +75,5 @@ logout
 `vagrant suspend`
 ## 销毁虚拟机
 `vagrant destroy`
-
+## 查看配置文件
+`vagrant ssh-config`
