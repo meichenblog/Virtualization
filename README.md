@@ -63,3 +63,16 @@ end
 `vagrant halt` # 关闭所有虚拟机
 
 `vagrant halt  virtual name` # 指定虚拟机名称进行关闭
+
+## ssh 进入机器
+`vagrant ssh`
+
+## 推出机器
+logout
+## 查看已开启的机器
+`vagrant box list`
+## 暂停虚拟机
+`vagrant suspend`
+## 销毁虚拟机
+`vagrant destroy`
+
