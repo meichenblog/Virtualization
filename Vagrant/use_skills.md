@@ -36,6 +36,8 @@
 - 如果可能，我们建议使用NFS而不是VirtualBox共享文件夹。您还可以使用vagrant-sshfs插件，该插件与NFS不同，可在所有操作系统上使用
 ## 作用：完成虚拟机间的数据传送
 ## 安装插件
+[vagrant-scp使用方法](https://github.com/invernizzi/vagrant-scp)
+
 `vagrant plugin install vagrant-scp`
 ## 使用插件
 - 在宿主机上使用
