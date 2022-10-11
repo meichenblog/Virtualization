@@ -39,6 +39,8 @@
 [vagrant-scp使用方法](https://github.com/invernizzi/vagrant-scp)
 
 `vagrant plugin install vagrant-scp`
+
+`vagrant scp file.txt :file.txt`
 ## 使用插件
 - 在宿主机上使用
 
