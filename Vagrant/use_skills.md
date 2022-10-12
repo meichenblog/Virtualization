@@ -49,3 +49,10 @@
 ## vagrant 网路配置详情
 
 [vagrant 网路](https://www.ityoudao.cn/posts/vagrant-network/)
+### 命令行查询VBox虚拟机中的ip地址
+- 先查询需要查看ip的虚拟机名称
+
+`VBoxManage list runningvms`
+- 再查看对应虚拟机的ip地址
+
+`VBoxManage guestproperty enumerate slaver1-51| grep "Net.*V4.*IP"`
