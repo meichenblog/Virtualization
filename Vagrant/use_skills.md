@@ -45,3 +45,7 @@
 - 在宿主机上使用
 
 `vagrant scp ./a.txt node-1:/vagrant/a.txt`
+
+## vagrant 网路配置详情
+
+[vagrant 网路](https://www.ityoudao.cn/posts/vagrant-network/)
