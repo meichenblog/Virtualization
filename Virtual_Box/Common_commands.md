@@ -2,6 +2,8 @@
 
 [Virtual Box ](https://blog.csdn.net/achang21/article/details/18413811)
 
+[vbox常用命令](https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-list.html)
+
 # vboxmanage 命令的使用
 ## 查询所有已经创建的vboxmanage 虚拟机
 `vboxmanage list vms`
