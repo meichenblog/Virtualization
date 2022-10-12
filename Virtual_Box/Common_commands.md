@@ -17,3 +17,5 @@
 `VBoxManage controlvm <vm_name> poweroff`
 ## 删除虚拟机
 `VBoxManage unregistervm   --delete <vm_name>`
+## 查看本地网络
+` vboxmanage list  bridgedifs`
